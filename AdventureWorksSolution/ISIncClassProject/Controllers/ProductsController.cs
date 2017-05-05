@@ -38,6 +38,7 @@ namespace ISIncClassProject.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -48,6 +49,7 @@ namespace ISIncClassProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductID,Name,ProductNumber,MakeFlag,FinishedGoodsFlag,Color,SafetyStockLevel,ReorderPoint,StandardCost,ListPrice,Size,SizeUnitMeasureCode,WeightUnitMeasureCode,Weight,DaysToManufacture,ProductLine,Class,Style,ProductSubcategoryID,ProductModelID,SellStartDate,SellEndDate,DiscontinuedDate,rowguid,ModifiedDate")] Product product)
         {
+            product.rowguid = Guid.NewGuid();
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
