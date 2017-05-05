@@ -10,108 +10,109 @@ using ISIncClassProject.Entities;
 
 namespace ISIncClassProject.Controllers
 {
-    public class VendorsController : Controller
+    public class ProductsController : Controller
     {
         private AdventureWorks2014Entities db = new AdventureWorks2014Entities();
 
-        // GET: Vendors
+        // GET: Products
         public ActionResult Index()
         {
-            return View(db.Vendors.ToList());
+            return View(db.Products.ToList());
         }
 
-        // GET: Vendors/Details/5
+        // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendor vendor = db.Vendors.Find(id);
-            if (vendor == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(vendor);
+            return View(product);
         }
 
-        // GET: Vendors/Create
+        // GET: Products/Create
         public ActionResult Create()
         {
-            // comment
+
             return View();
         }
 
-        // POST: Vendors/Create
+        // POST: Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BusinessEntityID,AccountNumber,Name,CreditRating,PreferredVendorStatus,ActiveFlag,PurchasingWebServiceURL,ModifiedDate")] Vendor vendor)
+        public ActionResult Create([Bind(Include = "ProductID,Name,ProductNumber,MakeFlag,FinishedGoodsFlag,Color,SafetyStockLevel,ReorderPoint,StandardCost,ListPrice,Size,SizeUnitMeasureCode,WeightUnitMeasureCode,Weight,DaysToManufacture,ProductLine,Class,Style,ProductSubcategoryID,ProductModelID,SellStartDate,SellEndDate,DiscontinuedDate,rowguid,ModifiedDate")] Product product)
         {
+            product.rowguid = Guid.NewGuid();
             if (ModelState.IsValid)
             {
-                db.Vendors.Add(vendor);
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(vendor);
+            return View(product);
         }
 
-        // GET: Vendors/Edit/5
+        // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendor vendor = db.Vendors.Find(id);
-            if (vendor == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(vendor);
+            return View(product);
         }
 
-        // POST: Vendors/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BusinessEntityID,AccountNumber,Name,CreditRating,PreferredVendorStatus,ActiveFlag,PurchasingWebServiceURL,ModifiedDate")] Vendor vendor)
+        public ActionResult Edit([Bind(Include = "ProductID,Name,ProductNumber,MakeFlag,FinishedGoodsFlag,Color,SafetyStockLevel,ReorderPoint,StandardCost,ListPrice,Size,SizeUnitMeasureCode,WeightUnitMeasureCode,Weight,DaysToManufacture,ProductLine,Class,Style,ProductSubcategoryID,ProductModelID,SellStartDate,SellEndDate,DiscontinuedDate,rowguid,ModifiedDate")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vendor).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(vendor);
+            return View(product);
         }
 
-        // GET: Vendors/Delete/5
+        // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendor vendor = db.Vendors.Find(id);
-            if (vendor == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(vendor);
+            return View(product);
         }
 
-        // POST: Vendors/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Vendor vendor = db.Vendors.Find(id);
-            db.Vendors.Remove(vendor);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
