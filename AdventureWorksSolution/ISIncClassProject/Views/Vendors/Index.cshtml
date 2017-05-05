@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ISIncClassProject.Entities.Vendor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreferredVendorStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActiveFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchasingWebServiceURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditRating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreferredVendorStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActiveFlag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchasingWebServiceURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BusinessEntityID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BusinessEntityID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BusinessEntityID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model ISIncClassProject.Entities.Vendor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vendor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreferredVendorStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreferredVendorStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActiveFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActiveFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchasingWebServiceURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchasingWebServiceURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BusinessEntityID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
