@@ -38,7 +38,10 @@ namespace ISIncClassProject.Controllers
         // GET: Vendors/Create
         public ActionResult Create()
         {
-            // comment
+            
+            ViewBag.BusinessEntityID = (db.Vendors.Max(v => v.BusinessEntityID)) + 1;
+            ViewBag.ModifiedDate = DateTime.Now;
+
             return View();
         }
 
@@ -49,6 +52,7 @@ namespace ISIncClassProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BusinessEntityID,AccountNumber,Name,CreditRating,PreferredVendorStatus,ActiveFlag,PurchasingWebServiceURL,ModifiedDate")] Vendor vendor)
         {
+            
             if (ModelState.IsValid)
             {
                 db.Vendors.Add(vendor);
