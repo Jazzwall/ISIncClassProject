@@ -1,0 +1,9 @@
+SELECT P.ProductNumber, P.Name AS Product, V.Name AS Vendor, PV.LastReceiptCost
+FROM Production.Product AS P
+    JOIN Purchasing.ProductVendor AS PV ON P.ProductID = PV.ProductID
+    JOIN Purchasing.Vendor AS V ON V.BusinessEntityID = PV.BusinessEntityID
+ORDER BY P.Name ;
+
+
+https://www.sqldatadictionary.com/AdventureWorks2014/
+
