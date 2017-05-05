@@ -38,6 +38,7 @@ namespace ISIncClassProject.Controllers
         // GET: Vendors/Create
         public ActionResult Create()
         {
+            // comment
             return View();
         }
 
