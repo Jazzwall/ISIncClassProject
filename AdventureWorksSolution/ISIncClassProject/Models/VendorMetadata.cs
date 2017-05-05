@@ -21,7 +21,11 @@ namespace ISIncClassProject.Entities
         [Display(Name = "Preferred")]
         public bool PreferredVendorStatus;
 
+        [Display(Name = "Purchasing URL")]
+        public string PurchasingWebServiceURL;
+
         [Display(Name = "Modified")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public System.DateTime ModifiedDate;
     }
 }
